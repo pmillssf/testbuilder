@@ -27,11 +27,14 @@ var detectPrefix = function(cardNumber){
 	  	return prefixData[k];
 	  }
 	}
+	if (Number(cardNumber.slice(0,6)) <= 622925 && Number(cardNumber.slice(0,6)) >= 622126){
+	  return 'China UnionPay';
+	}
 };
 
 var detectLength = function(cardNumber, prefix){
 	var lengthData = {'Diner\'s Club' : [14], 'Visa' : [13, 16, 19], 'American Express' : [15], 'MasterCard' : [16], 'Discover' : [16, 19],
-	 'Maestro' : [12, 13, 14, 15, 16, 17, 18, 19]};
+	 'Maestro' : [12, 13, 14, 15, 16, 17, 18, 19], 'China UnionPay' : [16, 17, 18, 19]};
 	for (var j in lengthData){
 	  if (prefix === j){
 	  	for (i = 0; i < lengthData[j].length; i++){
