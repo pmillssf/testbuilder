@@ -43,4 +43,25 @@ var detectPrefix = function(cardNumber){
   }
 }
 
+var detectLength = function(cardNumber, prefix){
+  if (prefix === 'Visa'){
+  	visaLengths = [13, 16, 19];
+  	for (i = 0; i < visaLengths.length; i++){
+  	  if (cardNumber.length === visaLengths[i]){
+  	  	return 'Visa';
+  	  }
+  	}
+  	return 'Card Length Error'
+  } else if (prefix === 'Diner\'s Club' && cardNumber.length === 14){
+  	return 'Diner\'s Club';
+  } else if (prefix === 'American Express' && cardNumber.length === 15){
+    return 'American Express'
+  } else if (prefix === 'MasterCard' && cardNumber.length === 16){
+  	return 'MasterCard';
+  } else {
+  	return 'Card Length Error'
+  }
+}
+
+
 
