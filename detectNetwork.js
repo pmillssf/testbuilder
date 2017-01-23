@@ -22,5 +22,25 @@ var detectNetwork = function(cardNumber) {
 
   // Once you've read this, go ahead and try to implement this function, then return to the console.
 };
+// Check Prefix
+// Check length
+var detectPrefix = function(cardNumber){
+  var idNumbers = cardNumber.slice(0,2);
+  if (idNumbers[0] === '4'){
+  	return 'Visa';
+  } else if (idNumbers === '38' || idNumbers === '39') {
+  	return 'Diner\'s Club';
+  } else if (idNumbers === '34' || idNumbers === '37') {
+  	return 'American Express';
+  } else {
+  	var mCPrefixes = ['51','52','53','54','55'];
+  	for (i = 0; i < mCPrefixes.length; i++){
+  	  if (idNumbers === mCPrefixes[i]){
+  	  	return 'MasterCard';
+  	  }
+  	}
+  	return 'Card not Recoginized';
+  }
+}
 
 
