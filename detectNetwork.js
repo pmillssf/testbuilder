@@ -19,7 +19,8 @@ var detectNetwork = function(cardNumber) {
 var detectPrefix = function(cardNumber){
 	var prefixData = {'38' : 'Diner\'s Club', '39' : 'Diner\'s Club', '4' : 'Visa', '34' : 'American Express', '37' : 'American Express',
 	 '51' : 'MasterCard', '52' : 'MasterCard', '53' : 'MasterCard', '54' : 'MasterCard', '55' : 'MasterCard', '6011' : 'Discover',
-	  '644-649' : 'Discover', '65' : 'Discover', '5018' : 'Maestro', '5020' : 'Maestro', '5038' : 'Maestro', '6304' : 'Maestro'};
+	  '644' : 'Discover', '645' : 'Discover', '646' : 'Discover', '647' : 'Discover', '648' : 'Discover', '649' : 'Discover',
+	   '65' : 'Discover', '5018' : 'Maestro', '5020' : 'Maestro', '5038' : 'Maestro', '6304' : 'Maestro'};
 	for (var k in prefixData){
 	  var cardNumberPrefix = cardNumber.slice(0, k.length);
 	  if (cardNumberPrefix === k){
@@ -29,23 +30,17 @@ var detectPrefix = function(cardNumber){
 };
 
 var detectLength = function(cardNumber, prefix){
-  if (prefix === 'Visa'){
-  	visaLengths = [13, 16, 19];
-  	for (i = 0; i < visaLengths.length; i++){
-  	  if (cardNumber.length === visaLengths[i]){
-  	  	return 'Visa';
-  	  }
-  	}
-  	return 'Card Length Error'
-  } else if (prefix === 'Diner\'s Club' && cardNumber.length === 14){
-  	return 'Diner\'s Club';
-  } else if (prefix === 'American Express' && cardNumber.length === 15){
-    return 'American Express'
-  } else if (prefix === 'MasterCard' && cardNumber.length === 16){
-  	return 'MasterCard';
-  } else {
-  	return 'Card Length Error'
-  }
+	var lengthData = {'Diner\'s Club' : [14], 'Visa' : [13, 16, 19], 'American Express' : [15], 'MasterCard' : [16], 'Discover' : [16, 19],
+	 'Maestro' : [12, 13, 14, 15, 16, 17, 18, 19]};
+	for (var j in lengthData){
+	  if (prefix === j){
+	  	for (i = 0; i < lengthData[j].length; i++){
+	  	  if (lengthData[j][i] === cardNumber.length){
+	  	  	return j;
+	  	  }
+	  	}
+	  }
+	}
 };
 /*
 console.log(detectNetwork('38345678901234') === 'Diner\'s Club');
