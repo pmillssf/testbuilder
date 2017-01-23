@@ -370,6 +370,59 @@ describe('China UnionPay', function(){
     });
   };
 
+  for (i = 624; i < 627; i++){
+    testnumber = i.toString() + '1234567890123'
+    it('has a prefix of ' + i.toString() + ' and a length of 16', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+
+  for (i = 624; i < 627; i++){
+    testnumber = i.toString() + '12345678901234'
+    it('has a prefix of ' + i.toString() + ' and a length of 17', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+
+  for (i = 624; i < 627; i++){
+    testnumber = i.toString() + '123456789012345'
+    it('has a prefix of ' + i.toString() + ' and a length of 18', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+  for (i = 624; i < 627; i++){
+    testnumber = i.toString() + '1234567890123456'
+    it('has a prefix of ' + i.toString() + ' and a length of 19', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+    for (i = 6282; i < 6289; i++){
+    testnumber = i.toString() + '123456789012'
+    it('has a prefix of ' + i.toString() + ' and a length of 16', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+
+  for (i = 6282; i < 6289; i++){
+    testnumber = i.toString() + '1234567890123'
+    it('has a prefix of ' + i.toString() + ' and a length of 17', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+
+  for (i = 6282; i < 6289; i++){
+    testnumber = i.toString() + '12345678901234'
+    it('has a prefix of ' + i.toString() + ' and a length of 18', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+  for (i = 6282; i < 6289; i++){
+    testnumber = i.toString() + '123456789012345'
+    it('has a prefix of ' + i.toString() + ' and a length of 19', function() {
+    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
+    });
+  };
+
 });
 describe('should support Switch')
 
