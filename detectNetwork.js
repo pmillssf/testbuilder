@@ -20,7 +20,9 @@ var detectPrefix = function(cardNumber){
 	var prefixData = {'38' : 'Diner\'s Club', '39' : 'Diner\'s Club', '4' : 'Visa', '34' : 'American Express', '37' : 'American Express',
 	 '51' : 'MasterCard', '52' : 'MasterCard', '53' : 'MasterCard', '54' : 'MasterCard', '55' : 'MasterCard', '6011' : 'Discover',
 	  '644' : 'Discover', '645' : 'Discover', '646' : 'Discover', '647' : 'Discover', '648' : 'Discover', '649' : 'Discover',
-	   '65' : 'Discover', '5018' : 'Maestro', '5020' : 'Maestro', '5038' : 'Maestro', '6304' : 'Maestro'};
+	   '65' : 'Discover', '5018' : 'Maestro', '5020' : 'Maestro', '5038' : 'Maestro', '6304' : 'Maestro', '624' : 'China UnionPay',
+	    '625' : 'China UnionPay', '626' : 'China UnionPay', '6282' : 'China UnionPay', '6283' : 'China UnionPay', '6284' : 'China UnionPay',
+	    '6285' : 'China UnionPay', '6286' : 'China UnionPay', '6287' : 'China UnionPay', '6288' :'China UnionPay' };
 	for (var k in prefixData){
 	  var cardNumberPrefix = cardNumber.slice(0, k.length);
 	  if (cardNumberPrefix === k){
