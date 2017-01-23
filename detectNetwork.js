@@ -17,22 +17,15 @@ var detectNetwork = function(cardNumber) {
 // Check Prefix
 // Check length
 var detectPrefix = function(cardNumber){
-  var idNumbers = cardNumber.slice(0,2);
-  if (idNumbers[0] === '4'){
-  	return 'Visa';
-  } else if (idNumbers === '38' || idNumbers === '39') {
-  	return 'Diner\'s Club';
-  } else if (idNumbers === '34' || idNumbers === '37') {
-  	return 'American Express';
-  } else {
-  	var mCPrefixes = ['51','52','53','54','55'];
-  	for (i = 0; i < mCPrefixes.length; i++){
-  	  if (idNumbers === mCPrefixes[i]){
-  	  	return 'MasterCard';
-  	  }
-  	}
-  	return 'Card not Recoginized';
-  }
+	var prefixData = {'38' : 'Diner\'s Club', '39' : 'Diner\'s Club', '4' : 'Visa', '34' : 'American Express', '37' : 'American Express',
+	 '51' : 'MasterCard', '52' : 'MasterCard', '53' : 'MasterCard', '54' : 'MasterCard', '55' : 'MasterCard', '6011' : 'Discover',
+	  '644-649' : 'Discover', '65' : 'Discover', '5018' : 'Maestro', '5020' : 'Maestro', '5038' : 'Maestro', '6304' : 'Maestro'};
+	for (var k in prefixData){
+	  var cardNumberPrefix = cardNumber.slice(0, k.length);
+	  if (cardNumberPrefix === k){
+	  	return prefixData[k];
+	  }
+	}
 };
 
 var detectLength = function(cardNumber, prefix){
