@@ -342,85 +342,26 @@ describe('Maestro', function() {
 
 describe('China UnionPay', function(){
   var expect = chai.expect;
+  for (z = 622126; z < 622926; z++){
+    (function(z) {it('has a prefix of ' + z + ' and a length of 16', function(){expect(detectNetwork(z + '1234567890')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 17', function(){expect(detectNetwork(z + '12345678901')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 18', function(){expect(detectNetwork(z + '123456789012')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 19', function(){expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});})(z);
+};
 
-  for (i = 622126; i < 622926; i++){
-    testnumber = i.toString() + '1234567890'
-    it('has a prefix of ' + i.toString() + ' and a length of 16', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
+  for (z = 624; z < 627; z++){
+    (function(z) {it('has a prefix of ' + z + ' and a length of 16', function(){expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 17', function(){expect(detectNetwork(z + '12345678901234')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 18', function(){expect(detectNetwork(z + '123456789012345')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 19', function(){expect(detectNetwork(z + '1234567890123456')).to.equal('China UnionPay');});})(z);
 
-  for (i = 622126; i < 622926; i++){
-    testnumber = i.toString() + '12345678901'
-    it('has a prefix of ' + i.toString() + ' and a length of 17', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-
-  for (i = 622126; i < 622926; i++){
-    testnumber = i.toString() + '123456789012'
-    it('has a prefix of ' + i.toString() + ' and a length of 18', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-  for (i = 622126; i < 622926; i++){
-    testnumber = i.toString() + '1234567890123'
-    it('has a prefix of ' + i.toString() + ' and a length of 19', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
   };
 
-  for (i = 624; i < 627; i++){
-    testnumber = i.toString() + '1234567890123'
-    it('has a prefix of ' + i.toString() + ' and a length of 16', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-
-  for (i = 624; i < 627; i++){
-    testnumber = i.toString() + '12345678901234'
-    it('has a prefix of ' + i.toString() + ' and a length of 17', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-
-  for (i = 624; i < 627; i++){
-    testnumber = i.toString() + '123456789012345'
-    it('has a prefix of ' + i.toString() + ' and a length of 18', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-  for (i = 624; i < 627; i++){
-    testnumber = i.toString() + '1234567890123456'
-    it('has a prefix of ' + i.toString() + ' and a length of 19', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-    for (i = 6282; i < 6289; i++){
-    testnumber = i.toString() + '123456789012'
-    it('has a prefix of ' + i.toString() + ' and a length of 16', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-
-  for (i = 6282; i < 6289; i++){
-    testnumber = i.toString() + '1234567890123'
-    it('has a prefix of ' + i.toString() + ' and a length of 17', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-
-  for (i = 6282; i < 6289; i++){
-    testnumber = i.toString() + '12345678901234'
-    it('has a prefix of ' + i.toString() + ' and a length of 18', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
-  };
-  for (i = 6282; i < 6289; i++){
-    testnumber = i.toString() + '123456789012345'
-    it('has a prefix of ' + i.toString() + ' and a length of 19', function() {
-    expect(detectNetwork(testnumber)).to.equal('China UnionPay');
-    });
+  for (z = 6282; z < 6289; z++){
+    (function(z) {it('has a prefix of ' + z + ' and a length of 16', function(){expect(detectNetwork(z + '123456789012')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 17', function(){expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 18', function(){expect(detectNetwork(z + '12345678901234')).to.equal('China UnionPay');});})(z);
+    (function(z) {it('has a prefix of ' + z + ' and a length of 19', function(){expect(detectNetwork(z + '123456789012345')).to.equal('China UnionPay');});})(z);
   };
 
 });
