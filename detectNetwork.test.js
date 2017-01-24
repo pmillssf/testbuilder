@@ -133,7 +133,7 @@ describe('MasterCard', function() {
  
   it('has a prefix of 55 and a length of 16', function() {
     expect(detectNetwork('5512345678901234')).to.equal('MasterCard');
-  })
+  });
  
 });
 
@@ -340,32 +340,77 @@ describe('Maestro', function() {
 
 });
 
-describe('China UnionPay', function(){
+describe('China UnionPay', function() {
   var expect = chai.expect;
-  for (z = 622126; z < 622926; z++){
-    (function(z) {it('has a prefix of ' + z + ' and a length of 16', function(){expect(detectNetwork(z + '1234567890')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 17', function(){expect(detectNetwork(z + '12345678901')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 18', function(){expect(detectNetwork(z + '123456789012')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 19', function(){expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});})(z);
-};
+  for (z = 622126; z < 622926; z++) {
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 16', function() {
+        expect(detectNetwork(z + '1234567890')).to.equal('China UnionPay');});
+    })(z);
 
-  for (z = 624; z < 627; z++){
-    (function(z) {it('has a prefix of ' + z + ' and a length of 16', function(){expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 17', function(){expect(detectNetwork(z + '12345678901234')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 18', function(){expect(detectNetwork(z + '123456789012345')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 19', function(){expect(detectNetwork(z + '1234567890123456')).to.equal('China UnionPay');});})(z);
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 17', function() {
+        expect(detectNetwork(z + '12345678901')).to.equal('China UnionPay');});
+    })(z);
 
-  };
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 18', function() {
+        expect(detectNetwork(z + '123456789012')).to.equal('China UnionPay');});
+    })(z);
 
-  for (z = 6282; z < 6289; z++){
-    (function(z) {it('has a prefix of ' + z + ' and a length of 16', function(){expect(detectNetwork(z + '123456789012')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 17', function(){expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 18', function(){expect(detectNetwork(z + '12345678901234')).to.equal('China UnionPay');});})(z);
-    (function(z) {it('has a prefix of ' + z + ' and a length of 19', function(){expect(detectNetwork(z + '123456789012345')).to.equal('China UnionPay');});})(z);
-  };
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 19', function() {
+        expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});
+    })(z);
+}
+
+  for (z = 624; z < 627; z++) {
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 16', function() {
+        expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});
+    })(z);
+
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 17', function() {
+        expect(detectNetwork(z + '12345678901234')).to.equal('China UnionPay');});
+    })(z);
+
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 18', function() {
+        expect(detectNetwork(z + '123456789012345')).to.equal('China UnionPay');});
+    })(z);
+
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 19', function() {
+        expect(detectNetwork(z + '1234567890123456')).to.equal('China UnionPay');});
+    })(z);
+
+  }
+
+  for (z = 6282; z < 6289; z++) {
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 16', function() {
+        expect(detectNetwork(z + '123456789012')).to.equal('China UnionPay');});
+    })(z);
+
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 17', function() {
+        expect(detectNetwork(z + '1234567890123')).to.equal('China UnionPay');});
+    })(z);
+
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 18', function() {
+        expect(detectNetwork(z + '12345678901234')).to.equal('China UnionPay');});
+    })(z);
+
+    (function(z) {
+      it('has a prefix of ' + z + ' and a length of 19', function() {
+        expect(detectNetwork(z + '123456789012345')).to.equal('China UnionPay');});
+    })(z);
+  }
 
 });
-describe('should support Switch', function(){
+describe('should support Switch', function() {
   var expect = chai.expect;
 
   it('has a prefix of 4903 and a length of 16', function() {
@@ -463,5 +508,5 @@ describe('should support Switch', function(){
     expect(detectNetwork('6331101234567890123')).to.equal('Switch');
   });
 
-})
+});
 
