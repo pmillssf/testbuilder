@@ -22,10 +22,19 @@ var detectPrefix = function(cardNumber){
 	  '644' : 'Discover', '645' : 'Discover', '646' : 'Discover', '647' : 'Discover', '648' : 'Discover', '649' : 'Discover',
 	   '65' : 'Discover', '5018' : 'Maestro', '5020' : 'Maestro', '5038' : 'Maestro', '6304' : 'Maestro', '624' : 'China UnionPay',
 	    '625' : 'China UnionPay', '626' : 'China UnionPay', '6282' : 'China UnionPay', '6283' : 'China UnionPay', '6284' : 'China UnionPay',
-	    '6285' : 'China UnionPay', '6286' : 'China UnionPay', '6287' : 'China UnionPay', '6288' :'China UnionPay' };
+	    '6285' : 'China UnionPay', '6286' : 'China UnionPay', '6287' : 'China UnionPay', '6288' :'China UnionPay', '564182' : 'Switch',
+	     '633110' : 'Switch', '6333' : 'Switch', '6759' : 'Switch'};
+	var prefixDataOverlaps = {'4903' : 'Switch', '4905' : 'Switch', '4911' : 'Switch', '4936' : 'Switch'}
 	for (var k in prefixData){
 	  var cardNumberPrefix = cardNumber.slice(0, k.length);
 	  if (cardNumberPrefix === k){
+	  	if (cardNumberPrefix === '4'){
+	  	  for (var y in prefixDataOverlaps){
+	  	  	if (cardNumber.slice(0,4) === y){
+	  	  		return prefixDataOverlaps[y]
+	  	  	}
+	  	  }
+	  	}
 	  	return prefixData[k];
 	  }
 	}
@@ -36,7 +45,7 @@ var detectPrefix = function(cardNumber){
 
 var detectLength = function(cardNumber, prefix){
 	var lengthData = {'Diner\'s Club' : [14], 'Visa' : [13, 16, 19], 'American Express' : [15], 'MasterCard' : [16], 'Discover' : [16, 19],
-	 'Maestro' : [12, 13, 14, 15, 16, 17, 18, 19], 'China UnionPay' : [16, 17, 18, 19]};
+	 'Maestro' : [12, 13, 14, 15, 16, 17, 18, 19], 'China UnionPay' : [16, 17, 18, 19], 'Switch' : [16, 18, 19]};
 	for (var j in lengthData){
 	  if (prefix === j){
 	  	for (i = 0; i < lengthData[j].length; i++){
