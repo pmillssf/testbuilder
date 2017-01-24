@@ -24,14 +24,14 @@ var detectPrefix = function(cardNumber){
 	    '625' : 'China UnionPay', '626' : 'China UnionPay', '6282' : 'China UnionPay', '6283' : 'China UnionPay', '6284' : 'China UnionPay',
 	    '6285' : 'China UnionPay', '6286' : 'China UnionPay', '6287' : 'China UnionPay', '6288' :'China UnionPay', '564182' : 'Switch',
 	     '633110' : 'Switch', '6333' : 'Switch', '6759' : 'Switch'};
-	var prefixDataOverlaps = {'4903' : 'Switch', '4905' : 'Switch', '4911' : 'Switch', '4936' : 'Switch'}
+	var prefixDataOverlaps = {'4903' : 'Switch', '4905' : 'Switch', '4911' : 'Switch', '4936' : 'Switch'};
 	for (var k in prefixData){
 	  var cardNumberPrefix = cardNumber.slice(0, k.length);
 	  if (cardNumberPrefix === k){
 	  	if (cardNumberPrefix === '4'){
 	  	  for (var y in prefixDataOverlaps){
 	  	  	if (cardNumber.slice(0,4) === y){
-	  	  		return prefixDataOverlaps[y]
+	  	  		return prefixDataOverlaps[y];
 	  	  	}
 	  	  }
 	  	}
@@ -56,22 +56,7 @@ var detectLength = function(cardNumber, prefix){
 	  }
 	}
 };
-/*
-console.log(detectNetwork('38345678901234') === 'Diner\'s Club');
-console.log(detectNetwork('39345678901234') === 'Diner\'s Club');
-console.log(detectNetwork('343456789012345') === 'American Express');
-console.log(detectNetwork('373456789012345') === 'American Express');
 
-console.log(detectNetwork('4123456789012') === 'Visa');
-console.log(detectNetwork('4123456789012345') === 'Visa');
-console.log(detectNetwork('4123456789012345678') === 'Visa');
-
-console.log(detectNetwork('5112345678901234') === 'MasterCard');
-console.log(detectNetwork('5212345678901234') === 'MasterCard');
-console.log(detectNetwork('5312345678901234') === 'MasterCard');
-console.log(detectNetwork('5412345678901234') === 'MasterCard');
-console.log(detectNetwork('5512345678901234') === 'MasterCard');
-*/
 
 
 
